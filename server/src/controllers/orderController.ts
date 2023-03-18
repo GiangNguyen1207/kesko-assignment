@@ -1,32 +1,42 @@
 import { Request, Response } from 'express';
+import { GetAllOrderResponse } from '../models/GetAllOrdersResponse';
 import { Order } from '../models/Order';
 import OrderService from '../service/orderService';
 
 export const getAllOrders = async (req: Request, res: Response) => {
   try {
-    let orders: Order[] = [];
-
     const allOrders = await OrderService.getAll();
-    for (const order of allOrders) {
-      const products: string[] = await OrderService.getAllProducts(order.id);
-      const newOrder: Order = {
-        id: order.id,
-        shipAddress: order.shipAddress,
-        shipCity: order.shipCity,
-        shipRegion: order.shipRegion,
-        shipPostalCode: order.shipPostalCode,
-        shipCountry: order.shipCountry,
-        customerName: order.customerName,
-        products: products || [],
-      };
-      orders.push(newOrder);
-    }
-
-    return res.json(orders);
+    const getAllOrdersResponse = createGetAllOrdersResponse(allOrders);
+    res.json(getAllOrdersResponse);
   } catch (error: any) {
     res.status(error.statusCode).json({
       statusCode: error.statusCode,
       message: error.message,
     });
   }
+};
+
+const createGetAllOrdersResponse = (orders: Order[]) => {
+  const getAllOrdersResponse: GetAllOrderResponse[] = [];
+
+  for (const order of orders) {
+    const existingOrder = getAllOrdersResponse.find((o) => o.id === order.id);
+    if (existingOrder) {
+      existingOrder.products.push(order.productName);
+    } else {
+      const newOrder: GetAllOrderResponse = {
+        id: order.id,
+        customerName: order.customerName,
+        shipAddress: order.shipAddress,
+        shipCity: order.shipCity,
+        shipRegion: order.shipRegion,
+        shipPostalCode: order.shipPostalCode,
+        shipCountry: order.shipCountry,
+        products: [order.productName],
+      };
+      getAllOrdersResponse.push(newOrder);
+    }
+  }
+
+  return getAllOrdersResponse;
 };

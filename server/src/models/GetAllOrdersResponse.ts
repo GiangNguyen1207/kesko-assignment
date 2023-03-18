@@ -1,4 +1,4 @@
-export interface Order {
+export interface GetAllOrderResponse {
   id: number;
   customerName: string;
   shipAddress: string;
@@ -6,5 +6,5 @@ export interface Order {
   shipRegion: string;
   shipPostalCode: string;
   shipCountry: string;
-  productName: string;
+  products: string[];
 }

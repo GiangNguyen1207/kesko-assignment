@@ -1,0 +1,8 @@
+.box-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  color: #b54139;
+}

@@ -1,8 +1,17 @@
 .box-container {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .title {
   color: #b54139;
+}
+
+.text {
+  white-space: pre-line;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: bold;
+  margin-top: 10px;
 }

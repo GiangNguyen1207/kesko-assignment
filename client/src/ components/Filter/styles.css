@@ -1,0 +1,57 @@
+.filter-container {
+  width: 70%;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+
+.filter-container label {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.product-name-label,
+.checkbox-container {
+  margin-left: 10px;
+}
+
+.input {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.icon {
+  position: absolute;
+  right: 20px;
+}
+
+input[type='text'] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  padding: 18px 40px 18px 10px;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  background-color: rgb(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 18px;
+}
+
+input::placeholder {
+  color: #ffffff;
+  opacity: 0.5;
+  font-size: 18px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+}
+
+input[type='checkbox'] {
+  accent-color: #b54139;
+  margin-right: 5px;
+}

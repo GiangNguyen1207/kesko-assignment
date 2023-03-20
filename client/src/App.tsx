@@ -1,8 +1,14 @@
+import Header from './ components/Header';
 import './App.css';
-import HomeScreen from './pages/HomePage';
+import AppRoutes from './Routes';
 
 function App() {
-  return <HomeScreen />;
+  return (
+    <>
+      <Header />
+      <AppRoutes />
+    </>
+  );
 }
 
 export default App;

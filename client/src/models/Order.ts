@@ -6,5 +6,5 @@ export interface Order {
   shipRegion: string;
   shipPostalCode: string;
   shipCountry: string;
-  products?: string[];
+  products: string[];
 }

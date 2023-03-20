@@ -1,3 +1,30 @@
 .row-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 5% repeat(3, 20%) 20%;
+  grid-template-rows: auto;
+  gap: 80px 20px;
+  margin-bottom: 80px;
+}
+
+.count {
+  justify-self: center;
+  align-self: center;
+  font-size: 35px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.button {
+  align-self: center;
+  padding: 15px 0;
+  background-color: #b54139;
+  font-size: 16px;
+  color: #ffffff;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  margin-left: 50px;
+}
+
+.button:hover {
+  background-color: #b2281e;
 }

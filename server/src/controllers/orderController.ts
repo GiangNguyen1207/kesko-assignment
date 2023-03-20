@@ -32,6 +32,7 @@ const createGetAllOrdersResponse = (orders: Order[]) => {
         shipRegion: order.shipRegion,
         shipPostalCode: order.shipPostalCode,
         shipCountry: order.shipCountry,
+        shippedDate: order.shippedDate,
         products: [order.productName],
       };
       getAllOrdersResponse.push(newOrder);

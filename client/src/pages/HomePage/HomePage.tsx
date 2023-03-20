@@ -4,11 +4,13 @@ import useOrder from '../../hooks/useOrder';
 import { Order } from '../../models/Order';
 import './styles.css';
 import { useState } from 'react';
+import useFilter from '../../hooks/useFilter';
 
 export default function HomeScreen() {
   const [input, setInput] = useState<string>('');
   const [checboxValue, setCheckboxValue] = useState<boolean>(false);
   const { orders, error } = useOrder();
+  const { filteredOrders } = useFilter(input, checboxValue, orders);
 
   if (error) {
     return <>{error}</>;
@@ -19,28 +21,21 @@ export default function HomeScreen() {
   };
 
   const onCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.checked);
     setCheckboxValue(event.target.checked);
   };
 
   return (
     <div className='container'>
-      {orders.length === 0 ? (
-        <>Loading...</>
-      ) : (
-        <>
-          <Filter
-            input={input}
-            onInputChange={onInputChange}
-            checkboxValue={checboxValue}
-            onCheckboxChange={onCheckboxChange}
-          />
-          {orders.map((order: Order) => {
-            const index = orders.findIndex((o: Order) => o.id === order.id);
-            return <OrderRow order={order} count={index + 1} key={order.id} />;
-          })}
-        </>
-      )}
+      <Filter
+        input={input}
+        onInputChange={onInputChange}
+        checkboxValue={checboxValue}
+        onCheckboxChange={onCheckboxChange}
+      />
+      {filteredOrders.map((order: Order) => {
+        const count = orders.findIndex((o: Order) => o.id === order.id) + 1;
+        return <OrderRow order={order} count={count} key={order.id} />;
+      })}
     </div>
   );
 }

@@ -6,5 +6,6 @@ export interface GetAllOrderResponse {
   shipRegion: string;
   shipPostalCode: string;
   shipCountry: string;
+  shippedDate: string;
   products: string[];
 }

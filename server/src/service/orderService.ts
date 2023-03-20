@@ -12,6 +12,7 @@ function getAll(): Promise<Order[]> {
   Orders.ShipRegion as shipRegion, 
   Orders.ShipPostalCode as shipPostalCode, 
   Orders.ShipCountry as shipCountry, 
+  Orders.ShippedDate as shippedDate,
   Customers.ContactName as customerName,
   Products.ProductName as productName
   FROM Orders

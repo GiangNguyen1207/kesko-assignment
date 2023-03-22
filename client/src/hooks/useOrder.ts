@@ -4,13 +4,17 @@ import { getAllOrders } from '../services/OrderService';
 
 export default function useOrder() {
   const [orders, setOrders] = useState<Order[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const getOrders = () => {
+  const getOrders = async () => {
     try {
-      getAllOrders().then((res) => setOrders(res.data));
+      const response = await getAllOrders();
+      setOrders(response.data);
+      setIsLoading(false);
     } catch (error: any) {
       setError(error.message);
+      setIsLoading(false);
     }
   };
 
@@ -21,5 +25,6 @@ export default function useOrder() {
   return {
     orders,
     error,
+    isLoading,
   };
 }

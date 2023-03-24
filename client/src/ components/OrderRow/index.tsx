@@ -31,9 +31,13 @@ export default function OrderRow({ order, count }: OrderProps) {
 
   return (
     <div className='row-container'>
-      <p className='count' data-testid='count'>
-        #{count}
-      </p>
+      <div className='order-group-text'>
+        <p className='order-mobile-text'>Order</p>
+        <p className='count' data-testid='count'>
+          #{count}
+        </p>
+      </div>
+      <hr />
       <Box title='Shipping address' text={address} />
       <Box title='Customer name' text={`${order.customerName}`} />
       <Box title='Products' text={`${getProductText()}`} />

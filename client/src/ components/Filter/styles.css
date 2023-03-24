@@ -55,3 +55,9 @@ input[type='checkbox'] {
   accent-color: #b54139;
   margin-right: 5px;
 }
+
+@media only screen and (max-width: 768px) {
+  .filter-container {
+    width: 100%;
+  }
+}

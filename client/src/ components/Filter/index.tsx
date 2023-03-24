@@ -27,6 +27,7 @@ export default function Filter({
             type='text'
             name='productName'
             id='productName'
+            data-testid='productName'
             placeholder='Aniseed Syrup'
             value={input}
             onChange={onInputChange}
@@ -41,12 +42,13 @@ export default function Filter({
       <div className='checkbox-container'>
         <input
           type='checkbox'
-          name='productName'
-          id='productName'
+          name='checkbox'
+          id='checkbox'
+          data-testid='checkbox'
           checked={checkboxValue}
           onChange={onCheckboxChange}
         />
-        <label htmlFor='productName'>Show only shipped orders</label>
+        <label htmlFor='checkbox'>Show only shipped orders</label>
       </div>
     </div>
   );

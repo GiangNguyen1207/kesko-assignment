@@ -1,7 +1,7 @@
 import OrderService from '../src/service/OrderService';
 
 describe('order service', () => {
-  test('should return correct form of order', async () => {
+  it('should return correct form of order', async () => {
     const response = await OrderService.getAll();
 
     expect(response).not.toBe(830);

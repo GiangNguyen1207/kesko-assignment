@@ -1,9 +1,14 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('renders correct header', () => {
+  render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  );
+  const header = screen.getByText(/northwind/i);
+  expect(header).toBeInTheDocument();
 });

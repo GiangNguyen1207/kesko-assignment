@@ -3,7 +3,7 @@ import app from '../src';
 import { GetAllOrderResponse } from '../src/models/GetAllOrdersResponse';
 
 describe('order controller', () => {
-  test('should return correct form of order', async () => {
+  it('should return correct form of order', async () => {
     const response = await request(app).get('/api/orders/get-all');
     const orders: GetAllOrderResponse[] = response.body;
 

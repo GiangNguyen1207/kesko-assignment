@@ -6,7 +6,7 @@ import './styles.css';
 import { useState } from 'react';
 import useFilter from '../../hooks/useFilter';
 
-export default function HomeScreen() {
+export default function HomePage() {
   const [input, setInput] = useState<string>('');
   const [checboxValue, setCheckboxValue] = useState<boolean>(false);
   const { orders, error, isLoading } = useOrder();

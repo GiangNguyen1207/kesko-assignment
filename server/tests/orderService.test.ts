@@ -1,3 +1,4 @@
+import { Order } from '../src/models/Order';
 import OrderService from '../src/service/OrderService';
 
 describe('order service', () => {
@@ -5,8 +6,8 @@ describe('order service', () => {
     const response = await OrderService.getAll();
 
     expect(response).not.toBe(830);
-    const productArrays = response.filter((el) => el.id === 10706);
-    const productNames = productArrays.map((el) => el.productName);
+    const productArrays = response.filter((el: Order) => el.id === 10706);
+    const productNames = productArrays.map((el: Order) => el.productName);
     expect(productNames.length).toBe(3);
     expect(productNames).toContain('Pavlova');
     expect(productNames).toContain('Ipoh Coffee');

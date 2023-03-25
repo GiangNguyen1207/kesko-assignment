@@ -13,7 +13,6 @@ export default function useOrder() {
       setOrders(response.data);
       setIsLoading(false);
     } catch (error: any) {
-      console.log(error);
       setError(error.message);
       setIsLoading(false);
     }

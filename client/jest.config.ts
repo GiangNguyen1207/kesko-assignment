@@ -6,6 +6,7 @@ const config: Config.InitialOptions = {
     '^.+\\.tsx?$': 'ts-jest',
   },
   clearMocks: true,
+  collectCoverage: true,
   moduleNameMapper: {
     '\\.(css|less)$': 'identity-obj-proxy',
   },

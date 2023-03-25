@@ -32,13 +32,14 @@ export default function useFilter(
       setFilters(filters);
     }
 
-    const unitFilters = Array.from(filters.values());
+    const unitFilters = Array.from(filters.keys());
     const filteredOrders = orders.filter((order) =>
       unitFilters.every((filter) => {
-        if (filter.name === 'filterProductName') return filter(order, input);
-        return filter(order);
+        if (filter === 'productName') return filterProductName(order, input);
+        return filterShippedOrder(order);
       })
     );
+
     setFilteredOrders(filteredOrders);
   }, [checkboxValue, filters, input, orders]);
 

@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { GetAllOrderResponse } from '../models/GetAllOrdersResponse';
 import { Order } from '../models/Order';
-import OrderService from '../service/OrderService';
+import OrderService from '../service/orderService';
 
 export const getAllOrders = async (req: Request, res: Response) => {
   try {

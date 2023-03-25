@@ -1,5 +1,5 @@
 import { Order } from '../src/models/Order';
-import OrderService from '../src/service/OrderService';
+import OrderService from '../src/service/orderService';
 
 describe('order service', () => {
   it('should return correct form of order', async () => {
